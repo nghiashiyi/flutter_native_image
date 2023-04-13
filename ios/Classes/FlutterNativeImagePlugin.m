@@ -37,7 +37,7 @@
         int widthArgument = [[_arguments objectForKey:@"targetWidth"] intValue];
         int heightArgument = [[_arguments objectForKey:@"targetHeight"] intValue];
         NSString *fileArgument = [_arguments objectForKey:@"file"];
-        NSURL *uncompressedFileUrl = [NSURL URLWithString:fileArgument];
+        NSURL *uncompressedFileUrl = [NSURL fileURLWithPath:fileArgument];
         
         NSString *fileName = [[fileArgument lastPathComponent] stringByDeletingPathExtension];
         NSString *uuid = [[NSUUID UUID] UUIDString];
@@ -73,7 +73,7 @@
         _arguments = call.arguments;
         
         NSString *fileArgument = [_arguments objectForKey:@"file"];
-        NSURL *uncompressedFileUrl = [NSURL URLWithString:fileArgument];
+        NSURL *uncompressedFileUrl = [NSURL fileURLWithPath:fileArgument];
         NSString *fileName = [[fileArgument lastPathComponent] stringByDeletingPathExtension];
 
         NSString *path = [uncompressedFileUrl path];
@@ -100,7 +100,7 @@
 	NSString *fileExtension = @"_cropped.jpg";
 
     	NSString *fileArgument = [_arguments objectForKey:@"file"];
-    	NSURL *uncompressedFileUrl = [NSURL URLWithString:fileArgument];
+    	NSURL *uncompressedFileUrl = [NSURL fileURLWithPath:fileArgument];
     	int originX = [[_arguments objectForKey:@"originX"] intValue];
     	int originY = [[_arguments objectForKey:@"originY"] intValue];
     	int width = [[_arguments objectForKey:@"width"] intValue];
